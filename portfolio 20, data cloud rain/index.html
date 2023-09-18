@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Stargraph</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cloud">
+            <h2>DATA CLOUD RAIN</h2>
+                <div class="CLOUDS">
+                </div>
+        </div>
+    </div>  
+    <script>
+        function randomText(){
+            var text = ("@!#$%&/()=?¡*¨][_:;-.,}{+´¿'qwertyuiopasdfghjklñzxcvbnm1234567890");
+            letter = text[Math.floor(Math.random() * text.length)];
+            return letter;
+        }
+        function rain(){
+            let cloud = document.querySelector('.cloud');
+            let e = document.createElement('div');
+            let left = Math.floor(Math.random() * 320);
+            let size = Math.random() * 1.5;
+            e.classList.add('text');
+            cloud.appendChild(e);
+            e.innerText = randomText();
+            e.style.left = left  + 'px';
+            e.style.fontSize = 0.5+size+'em';
+            
+            setTimeout(function(){
+                cloud.removeChild(e)
+            }, 2000)
+        }
+        setInterval(function(){
+            rain()
+        },20)
+    </script>  
+</body>
+</html>
